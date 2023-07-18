@@ -6,6 +6,7 @@ import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Collection;
 
 @RestController
@@ -62,4 +63,18 @@ public class StudentController {
             }
         }
     }
+    @GetMapping("/total-number")
+    public Integer getTotalNumber(){
+        return studentService.getTotalNumber();
+    }
+    @GetMapping("/average-age")
+    public double getAverageAge(){
+        return studentService.getAverageAge();
+    }
+    @GetMapping("/get-last-five")
+    public Collection<Student> getLastFive(){
+        return studentService.getLastFive();
+    }
+
+
 }
